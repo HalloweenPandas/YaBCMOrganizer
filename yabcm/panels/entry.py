@@ -90,10 +90,6 @@ class EntryPanel(wx.Panel):
                 }, False)
         ])
 
-        # Opponent Size Conditions
-        self.opponent_size_conditions = self.add_hex_entry(
-            activator_panel, 'Opponent Size\nConditions', max=MAX_UINT32)
-
         # Minimum Loop Duration
         self.minimum_loop_duration = self.add_num_entry(
             activator_panel, 'Minimum Loop\nConditions', True)
@@ -101,6 +97,22 @@ class EntryPanel(wx.Panel):
         # Maximum Loop Duration
         self.maximum_loop_duration = self.add_num_entry(
             activator_panel, 'Maximum Loop\nConditions', True)
+
+        # Opponent Size Conditions
+        self.opponent_size_conditions = self.add_multiple_selection_entry(
+            activator_panel, 'Opponent Size\nConditions', majorDimension=3, choices=[
+                ('Opponent Size', {
+                    'All Sizes (0x0)': 0x0,
+                    'Other Sizes (0x1)': 0x1,
+                    'Small (Krillin, Vegeta) (0x20001)': 0x20001,
+                    'Unknown Size (0x30001)': 0x30001,
+                    'Default Size (CACs, Goku) (0x40001)': 0x40001,
+                    'Medium (Slug, Cooler Final Form) (0x50001)': 0x50001,
+                    'Medium Large (Raditz, Burter) (0x60001)': 0x60001,
+                    'Large (Broly, Dodoria) (0x70001)': 0x70001,
+                    'Great Ape (0x80001)': 0x80001
+                }, False)
+            ])
 
         # Primary Activator Conditions
         self.primary_activator_conditions = self.add_multiple_selection_entry(
